@@ -36,7 +36,7 @@ class MaxBannerAdState extends State<MaxBannerAd> {
           creationParamsCodec: const StandardMessageCodec(),
           onPlatformViewCreated: _onBannerAdViewCreated);
       return Container(
-        padding: EdgeInsets.symmetric(vertical: _isLoaded ? widget.verticalPadding : 0),
+        margin: EdgeInsets.symmetric(vertical: _isLoaded ? widget.verticalPadding : 0),
         height: _isLoaded ? BannerSize.standard.height + 0.0 : 0,
         width: BannerSize.standard.width + 0.0,
         child: OverflowBox(

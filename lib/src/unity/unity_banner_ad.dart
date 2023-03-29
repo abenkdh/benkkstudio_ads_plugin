@@ -34,7 +34,7 @@ class _UnityBannerAdState extends State<UnityBannerAd> {
       onPlatformViewCreated: _onBannerAdViewCreated,
     );
     return Container(
-      padding: EdgeInsets.symmetric(vertical: _isLoaded ? widget.verticalPadding : 0),
+      margin: EdgeInsets.symmetric(vertical: _isLoaded ? widget.verticalPadding : 0),
       height: _isLoaded ? widget.size.height + 0.0 : 0,
       width: widget.size.width + 0.0,
       child: OverflowBox(

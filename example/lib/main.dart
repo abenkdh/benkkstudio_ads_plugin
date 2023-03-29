@@ -33,18 +33,19 @@ class _MyAppState extends State<MyApp> {
   }
 
   loadInterstitial() async {
-    await MaxAds.loadInterstitial(
-      placementId: 'a5024290f917f63b',
-      listener: (listener) => maxListener(listener),
-    );
-    await UnityAds.loadInterstitial(placementId: 'Interstitial_Android');
+    await MaxAds.loadInterstitial(placementId: 'a5024290f917f63b', listener: (listener) => maxListener(listener));
+    await UnityAds.loadInterstitial(placementId: 'Interstitial_Android', listener: unityLoadListener);
   }
 
   maxListener(MaxAdListener? maxListener) {
     print('abenk : ' + maxListener!.name);
   }
 
-  unityListener(UnityShowListener? unityShowListener) {
+  unityLoadListener(UnityLoadListener? unityShowListener) {
+    print('abenk : ' + unityShowListener!.name);
+  }
+
+  unityShowListener(UnityShowListener? unityShowListener) {
     print('abenk : ' + unityShowListener!.name);
   }
 
@@ -63,11 +64,17 @@ class _MyAppState extends State<MyApp> {
             children: [
               Container(
                 color: Colors.black,
-                child: const UnityBannerAd(placementId: 'Banner_Android'),
+                child: const UnityBannerAd(
+                  placementId: 'Banner_Android',
+                  verticalPadding: 20,
+                ),
               ),
               Container(
                 color: Colors.black,
-                child: const MaxBannerAd(placementId: '26bd8607040a3e4b'),
+                child: const MaxBannerAd(
+                  placementId: '26bd8607040a3e4b',
+                  verticalPadding: 20,
+                ),
               ),
               const SizedBox(
                 height: 20,
@@ -85,7 +92,7 @@ class _MyAppState extends State<MyApp> {
               ElevatedButton(
                   onPressed: () {
                     UnityAds.showInterstitial(
-                      listener: (listener) => unityListener(listener),
+                      listener: (listener) => unityShowListener(listener),
                     );
                   },
                   child: const Text('show interstitial unity')),
