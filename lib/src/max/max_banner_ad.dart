@@ -7,11 +7,13 @@ import '../ads_constant.dart';
 
 class MaxBannerAd extends StatefulWidget {
   final String placementId;
+  final double verticalPadding;
 
   /// This widget is used to contain Banner Ads.
   const MaxBannerAd({
     Key? key,
     required this.placementId,
+    this.verticalPadding = 0,
   }) : super(key: key);
 
   @override
@@ -33,7 +35,8 @@ class MaxBannerAdState extends State<MaxBannerAd> {
           },
           creationParamsCodec: const StandardMessageCodec(),
           onPlatformViewCreated: _onBannerAdViewCreated);
-      return SizedBox(
+      return Container(
+        padding: EdgeInsets.symmetric(vertical: _isLoaded ? widget.verticalPadding : 0),
         height: _isLoaded ? BannerSize.standard.height + 0.0 : 0,
         width: BannerSize.standard.width + 0.0,
         child: OverflowBox(

@@ -63,7 +63,7 @@ class _MyAppState extends State<MyApp> {
             children: [
               Container(
                 color: Colors.black,
-                child: UnityBannerAd(placementId: 'Banner_Android'),
+                child: const UnityBannerAd(placementId: 'Banner_Android'),
               ),
               Container(
                 color: Colors.black,

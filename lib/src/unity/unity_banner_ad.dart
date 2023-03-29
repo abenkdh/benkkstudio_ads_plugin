@@ -7,10 +7,12 @@ import '../banner_size.dart';
 class UnityBannerAd extends StatefulWidget {
   final String placementId;
   final BannerSize size;
+  final double verticalPadding;
   const UnityBannerAd({
     Key? key,
     required this.placementId,
     this.size = BannerSize.standard,
+    this.verticalPadding = 0,
   }) : super(key: key);
 
   @override
@@ -31,7 +33,8 @@ class _UnityBannerAdState extends State<UnityBannerAd> {
       creationParamsCodec: const StandardMessageCodec(),
       onPlatformViewCreated: _onBannerAdViewCreated,
     );
-    return SizedBox(
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: _isLoaded ? widget.verticalPadding : 0),
       height: _isLoaded ? widget.size.height + 0.0 : 0,
       width: widget.size.width + 0.0,
       child: OverflowBox(
