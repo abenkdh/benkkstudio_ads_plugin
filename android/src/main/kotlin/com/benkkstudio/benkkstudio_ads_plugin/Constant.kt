@@ -56,6 +56,23 @@ object Constant {
     const val onBannerClickUnity = "onBannerClickUnity";
     const val onBannerFailedToLoadUnity = "onBannerFailedToLoadUnity";
 
+
+    // Admob
+    const val initAdmob = "initAdmob";
+    const val loadInterAdmob = "${mainChannel}loadInterAdmob";
+    const val showInterAdmob = "${mainChannel}showInterAdmob";
+    const val admobBanner = "${mainChannel}admobBanner";
+
+    //Admob banner listener
+    const val onAdFailedToLoadAdmob = "onAdFailedToLoadAdmob";
+    const val onAdLoadedAdmob = "onAdLoadedAdmob";
+
+    //Admob inter listener
+    const val onAdFailedToLoadInterAdmob = "onAdFailedToLoadInterAdmob";
+    const val onAdLoadedInterAdmob = "onAdLoadedInterAdmob";
+    const val onAdDismissedFullScreenContentInterAdmob = "onAdDismissedFullScreenContentInterAdmob";
+    const val onAdFailedToShowFullScreenContentInterAdmob = "onAdFailedToShowFullScreenContentInterAdmob";
+
     //shared parameter
     const val enableAutoReload = "enableAutoReload";
     const val placementIdParam = "placementIdParam";

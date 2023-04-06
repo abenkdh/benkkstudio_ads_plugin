@@ -27,14 +27,16 @@ class _MyAppState extends State<MyApp> {
   }
 
   Future<void> initAds() async {
-    await UnityAds.init(gameId: '5221823', testMode: true, enableAutoReload: true);
-    await MaxAds.init(enableLogging: false, enableAutoReload: true);
+    //await UnityAds.init(gameId: '5221823', testMode: true, enableAutoReload: true);
+    //await MaxAds.init(enableLogging: false, enableAutoReload: true);
+    await AdmobAds.init(enableAutoReload: true);
     loadInterstitial();
   }
 
   loadInterstitial() async {
-    await MaxAds.loadInterstitial(placementId: 'a5024290f917f63b', listener: (listener) => maxListener(listener));
-    await UnityAds.loadInterstitial(placementId: 'Interstitial_Android', listener: unityLoadListener);
+    //await MaxAds.loadInterstitial(placementId: 'a5024290f917f63b', listener: (listener) => maxListener(listener));
+    //await UnityAds.loadInterstitial(placementId: 'Interstitial_Android', listener: unityLoadListener);
+    await AdmobAds.loadInterstitial(placementId: 'ca-app-pub-3940256099942544/1033173712', listener: admobListener);
   }
 
   maxListener(MaxAdListener? maxListener) {
@@ -47,6 +49,10 @@ class _MyAppState extends State<MyApp> {
 
   unityShowListener(UnityShowListener? unityShowListener) {
     print('abenk : ' + unityShowListener!.name);
+  }
+
+  admobListener(AdmobAdListener? admobListener) {
+    print('abenk : ' + admobListener!.name);
   }
 
   @override
@@ -62,40 +68,57 @@ class _MyAppState extends State<MyApp> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              // Container(
+              //   color: Colors.black,
+              //   child: const UnityBannerAd(
+              //     placementId: 'Banner_Android',
+              //     verticalPadding: 20,
+              //   ),
+              // ),
+              // Container(
+              //   color: Colors.black,
+              //   child: const MaxBannerAd(
+              //     placementId: '26bd8607040a3e4b',
+              //     verticalPadding: 20,
+              //   ),
+              // ),
               Container(
                 color: Colors.black,
-                child: const UnityBannerAd(
-                  placementId: 'Banner_Android',
-                  verticalPadding: 20,
-                ),
-              ),
-              Container(
-                color: Colors.black,
-                child: const MaxBannerAd(
-                  placementId: '26bd8607040a3e4b',
-                  verticalPadding: 20,
+                child: const AdmobBannerAd(
+                  placementId: 'ca-app-pub-3940256099942544/6300978111',
+                  verticalPadding: 0,
                 ),
               ),
               const SizedBox(
                 height: 20,
               ),
+              // ElevatedButton(
+              //     onPressed: () {
+              //       MaxAds.showInterstitial(
+              //         listener: (listener) => maxListener(listener),
+              //       );
+              //     },
+              //     child: const Text('show interstitial max')),
+              // const SizedBox(
+              //   height: 20,
+              // ),
+              // ElevatedButton(
+              //     onPressed: () {
+              //       UnityAds.showInterstitial(
+              //         listener: (listener) => unityShowListener(listener),
+              //       );
+              //     },
+              //     child: const Text('show interstitial unity')),
+              // const SizedBox(
+              //   height: 20,
+              // ),
               ElevatedButton(
                   onPressed: () {
-                    MaxAds.showInterstitial(
-                      listener: (listener) => maxListener(listener),
+                    AdmobAds.showInterstitial(
+                      listener: (listener) => admobListener(listener),
                     );
                   },
-                  child: const Text('show interstitial max')),
-              const SizedBox(
-                height: 20,
-              ),
-              ElevatedButton(
-                  onPressed: () {
-                    UnityAds.showInterstitial(
-                      listener: (listener) => unityShowListener(listener),
-                    );
-                  },
-                  child: const Text('show interstitial unity')),
+                  child: const Text('show interstitial admob')),
               const SizedBox(
                 height: 20,
               ),

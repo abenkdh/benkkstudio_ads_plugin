@@ -50,6 +50,7 @@ class UnityAds(private val context: Context, private val channel: MethodChannel)
             } else {
                 loadInterstitial()
             }
+            return true
         }
         UnityAds.show(activity, placementId, this)
         return true

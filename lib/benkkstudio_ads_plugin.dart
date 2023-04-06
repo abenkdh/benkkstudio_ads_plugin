@@ -1,3 +1,6 @@
+export 'benkkstudio_ads_plugin.dart';
+export 'src/admob/admob_ads.dart';
+export 'src/admob/admob_banner_ad.dart';
 export 'src/ads_constant.dart';
 export 'src/banner_size.dart';
 export 'src/max/max_ads.dart';

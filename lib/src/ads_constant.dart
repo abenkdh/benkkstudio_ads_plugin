@@ -53,6 +53,23 @@ class Constant {
   static const onBannerClickUnity = "onBannerClickUnity";
   static const onBannerFailedToLoadUnity = "onBannerFailedToLoadUnity";
 
+  // Admob
+  static const initAdmob = "initAdmob";
+  static const loadInterAdmob = "${mainChannel}loadInterAdmob";
+  static const showInterAdmob = "${mainChannel}showInterAdmob";
+  static const isAdmobInterLoaded = "${mainChannel}isAdmobInterLoaded";
+  static const admobBanner = "${mainChannel}admobBanner";
+
+  //Admob banner listener
+  static const onAdFailedToLoadAdmob = "onAdFailedToLoadAdmob";
+  static const onAdLoadedAdmob = "onAdLoadedAdmob";
+
+  //Admob inter listener
+  static const onAdFailedToLoadInterAdmob = "onAdFailedToLoadInterAdmob";
+  static const onAdLoadedInterAdmob = "onAdLoadedInterAdmob";
+  static const onAdDismissedFullScreenContentInterAdmob = "onAdDismissedFullScreenContentInterAdmob";
+  static const onAdFailedToShowFullScreenContentInterAdmob = "onAdFailedToShowFullScreenContentInterAdmob";
+
   //shared parameter
   static const enableAutoReload = "enableAutoReload";
   static const placementIdParam = "placementIdParam";
